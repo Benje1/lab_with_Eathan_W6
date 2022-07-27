@@ -15,8 +15,9 @@ Cinema.prototype.isThereByYear = function(year){
   if(found) {return true} else {return false}
 };
 Cinema.prototype.areTheFilmsLongEnough = function(time){
-  return this.films.includes(film => film.length < time)
-  if (found) {return false} else {return true}
+  // let found = this.films.find(film => film.length <= time)
+  // if (found) {return false} else {return true}
+  return this.films.some(film => film.length > time)
 };
 Cinema.prototype.totalLengthOfFilms = function(){
   let totalRunTime = this.films.reduce((now, next) => {
