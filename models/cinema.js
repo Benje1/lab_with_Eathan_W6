@@ -7,8 +7,9 @@ Cinema.prototype.filmTitle = function(){
   return titles;
 }
 Cinema.prototype.filmByTitle = function(title){
-  const result = this.films.filter(film => film.title === title)
-  return result[0]
+  // const result = this.films.filter(film => film.title === title)
+  // return result[0]
+  return this.films.find(film => film.title === title)
 }
 Cinema.prototype.isThereByYear = function(year){
   let found = this.films.find(film => film.year === year)
@@ -17,7 +18,7 @@ Cinema.prototype.isThereByYear = function(year){
 Cinema.prototype.areTheFilmsLongEnough = function(time){
   // let found = this.films.find(film => film.length <= time)
   // if (found) {return false} else {return true}
-  return this.films.some(film => film.length > time)
+  return this.films.every(film => film.length >= time)
 };
 Cinema.prototype.totalLengthOfFilms = function(){
   let totalRunTime = this.films.reduce((now, next) => {
